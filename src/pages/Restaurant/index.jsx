@@ -2,7 +2,6 @@ import { Navigate, useParams } from 'react-router-dom'
 
 import Footer from '../../components/Footer'
 import MenuCard from '../../components/MenuCard'
-import Cart from '../../components/Cart'
 import logo from '../../assets/logo.png'
 import pattern from '../../assets/profile-pattern.png'
 import { useRestaurants } from '../../context/RestaurantsContext'
@@ -61,7 +60,6 @@ const Restaurant = () => {
       </Main>
 
       <Footer />
-      <Cart />
     </>
   )
 }

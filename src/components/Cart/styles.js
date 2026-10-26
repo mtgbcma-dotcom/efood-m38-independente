@@ -9,12 +9,12 @@ export const Overlay = styled.div`
 `
 
 export const Drawer = styled.aside`
-  position: ${({ $standalone }) => $standalone ? 'relative' : 'absolute'};
+  position: absolute;
   top: 0;
   right: 0;
-  width: ${({ $standalone }) => $standalone ? '100%' : 'min(360px, 100%)'};
-  height: ${({ $standalone }) => $standalone ? 'auto' : '100dvh'};
-  padding: 8px;
+  width: min(360px, 100%);
+  height: 100dvh;
+  padding: 32px 8px;
   overflow-y: auto;
   background: ${colors.salmon};
 `
@@ -25,6 +25,17 @@ export const Empty = styled.p`
   text-align: center;
   font-size: 16px;
   font-weight: 700;
+`
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  border: 0;
+  background: transparent;
+  color: ${colors.peach};
+  font-size: 24px;
+  line-height: 24px;
 `
 
 export const Items = styled.div`

@@ -10,7 +10,7 @@ Nesta etapa, implementei o fluxo de finalização do pedido, com formulário de 
 - Modal com detalhes dos produtos.
 - Carrinho gerenciado com Redux Toolkit e React Redux.
 - Soma automática dos preços, adição e remoção de produtos.
-- Página de entrega com destinatário, endereço, cidade, CEP, número e complemento.
+- Entrega, pagamento e confirmação no mesmo modal lateral do carrinho, mantendo o cardápio ao fundo e sem mudança de página.
 - Formulário de pagamento com validação dos campos e do vencimento.
 - Envio do pedido por POST para a API de checkout da EBAC.
 - Bloqueio de envios duplicados enquanto a requisição está em andamento.
@@ -54,8 +54,7 @@ npm run build
 
 - `/`: restaurantes.
 - `/restaurante/:id`: cardápio.
-- `/carrinho`: carrinho de compras.
-- `/checkout`: entrega, pagamento e confirmação do pedido.
+- `/carrinho` e `/checkout`: links antigos redirecionam para a página inicial e abrem o modal do carrinho. O fluxo normal ocorre sobre `/restaurante/:id`, sem navegar para outra página.
 
 ## API
 
@@ -71,3 +70,9 @@ O checkout é uma demonstração acadêmica e deve ser utilizado com dados fict�
 ## Autor
 
 Bruno Costa Macedo de Almeida
+
+## Correção após avaliação do módulo 38
+
+O botão “Continuar com a entrega” avança dentro do painel lateral de 360px. Entrega → pagamento → confirmação compartilham o mesmo modal, com campos e botões organizados conforme o Figma. O botão de voltar do pagamento preserva os dados de entrega. Apenas “Finalizar pagamento” envia o POST; durante o envio, o fechamento e os envios repetidos são bloqueados. A confirmação usa o orderId retornado pela API e continua visível após a limpeza do carrinho. “Concluir” fecha o modal e mantém o usuário no cardápio.
+
+Os testes também cobrem o mesmo elemento de diálogo em todas as etapas, ausência de navegação, erros e resposta sem orderId, preservação do carrinho e conclusão no modal.
